@@ -1,0 +1,18 @@
+version: 1.0
+shards:
+  kemal:
+    github: kemalcr/kemal
+    commit: 2cfe789587fdc21f7878d65798f1a0e2f08027da
+
+  kemal-basic-auth:
+    github: kemalcr/kemal-basic-auth
+    version: 0.2.0
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.8
+

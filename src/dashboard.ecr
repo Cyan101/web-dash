@@ -1,3 +1,18 @@
-<%=mem_info["MemFree"].to_i / 1024 %>MB Free<br>
-<%=mem_info["MemAvailable"].to_i / 1024 %>MB Available<br>
-<%=mem_info["MemTotal"].to_i / 1024 %>MB Total<br>
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+</head>
+<div class="widget memory-stat">
+<%=(mem_total = mem_info["MemTotal"].to_i 
+mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).to_s + "gb" : (mem_total / 1024).to_s + "mb" %> Total<br>
+<%=mem_info["MemFree"].to_i / 1024 %>mb Free<br>
+<%=mem_info["MemAvailable"].to_i / 1024 %>mb Available<br>
+</div>
+<div class="widget memory-bars">
+<p>Free Memory: </p>
+<div class="widget bar">
+<div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
+</div>
+</div>
+</html>

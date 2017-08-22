@@ -1,0 +1,41 @@
+html {
+    background-image: url(ea9PB3H.png);
+    background-position: top;
+}
+.widget {
+}
+.widget > p {
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+}
+.memory-stat {
+    color: white;
+    border: black;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    background-color: #4a4a4a;
+    width: fit-content;
+    padding: 15px 15px 15px 15px;
+}
+.memory-bars > p {
+    margin-left: 4px;
+}
+.bar {
+    width: 200px;
+    background-color: #2a2b2f;
+    height: 18px;
+    overflow: hidden;
+    padding: 3px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 4px;
+    display: inline-block;
+}
+.bar-fill {
+    background-image: -webkit-linear-gradient(bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
+    background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
+    display: list-item;
+    border-radius: 1px;
+}

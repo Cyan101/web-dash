@@ -1,7 +1,6 @@
 require "./web-dash/*"
 require "kemal"
 require "kemal-basic-auth"
-
 basic_auth "cyan101", "pass123"
 
 before_all do |env|
@@ -13,7 +12,6 @@ end
 
 get "/" do |env|
   mem_info = get_mem_info
-  # page = "web-dash/widgets/memory.cr"
   render "src/dashboard.ecr"
 end
 

@@ -9,29 +9,22 @@ before_all do |env|
 end
 
 before_get do |env|
-  mem_info = `cat /proc/meminfo`.gsub(/(\ |(kb))/i, "").split("\n")
-  env.set("free_mem", free_mem(mem_info))
-  env.set("avail_mem", avail_mem(mem_info))
-  env.set("total_mem", total_mem(mem_info))
 end
 
 get "/" do |env|
-  page = ""
-  page += "#{env.get("free_mem").as(String).to_i / 1024}MB Free<br>"
-  page += "#{env.get("avail_mem").as(String).to_i / 1024}MB Available<br>"
-  page += "#{env.get("total_mem").as(String).to_i / 1024}MB Total<br>"
+  mem_info = get_mem_info
+  # page = "web-dash/widgets/memory.cr"
+  render "src/dashboard.ecr"
 end
 
 Kemal.run
 
-def free_mem(mem)
-  mem[1].split(":").[1]
-end
-
-def avail_mem(mem)
-  mem[2].split(":").[1]
-end
-
-def total_mem(mem)
-  mem[0].split(":").[1]
+def get_mem_info
+  mem_info = {} of String => UInt64
+  mem_file = File.read("/proc/meminfo").gsub(/\:|kb/i, "")
+  mem_file.each_line do |line|
+    item, kb = line.split
+    mem_info[item] = kb.to_u64
+  end
+  return mem_info
 end

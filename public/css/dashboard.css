@@ -1,25 +1,30 @@
 html {
-    background-image: url(ea9PB3H.png);
+    background-color: #fc6a3d;
+    background-image: url('http://i.imgur.com/ea9PB3H.png');
     background-position: top;
 }
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .widget {
-}
-.widget > p {
-    margin-right: 10px;
-    display: inline-block;
-    float: left;
-}
-.memory-stat {
     color: white;
     border: black;
     border-width: 1px 1px 1px 1px;
     border-style: solid;
     background-color: #4a4a4a;
-    width: fit-content;
     padding: 15px 15px 15px 15px;
+}
+.memory-stat {
+    width: fit-content;
+    min-width: 150px;
 }
 .memory-bars > p {
     margin-left: 4px;
+    margin-right: 10px;
+    margin-top: 13px;
+    display: inline-block;
+    float: left;
 }
 .bar {
     width: 200px;
@@ -38,4 +43,16 @@ html {
     background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
     display: list-item;
     border-radius: 1px;
+}
+.top-stat {
+    width: fit-content;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    position: absolute;
+    bottom: 15px;
+}
+pre {
+    font-size: small;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

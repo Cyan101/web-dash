@@ -13,9 +13,18 @@
 (mem_avail / 1024) > 1024 ? ((mem_avail / 1024) / 1024).round(2).to_s + " GB" : (mem_avail / 1024).round(2).to_s + " MB" %> Available</p>
 </div>
 <div class="memory-bars">
-<p>Free Memory: </p>
+<p class="before-bar">Free Memory: </p>
 <div class="bar">
 <div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
+</div>
+</div>
+<div class="widget cpu-stat">
+<p><%= Cpu.usage %>% CPU Usage</p>
+</div>
+<div class="memory-bars">
+<p class="before-bar">CPU Usage: </p>
+<div class="bar">
+<div class="bar-fill" style="width: <%= Cpu.usage %>%;"></div>
 </div>
 </div>
 <br><br>

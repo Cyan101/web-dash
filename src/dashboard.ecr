@@ -19,7 +19,13 @@
 </div>
 </div>
 <div class="widget cpu-stat">
-<p><%= Cpu.usage %>% CPU Usage</p>
+<p>Max CPU: <%=
+cpu = `lscpu | grep -e "CPU max"`.split(":")[1].to_f
+cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.round(2).to_s + "Mhz" %></p>
+<p class="mincpu inline">Min </p><p class="inline">CPU: <%=
+cpu = `lscpu | grep -e "CPU min"`.split(":")[1].to_f
+cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.to_i.to_s + "Mhz" %></p>
+<p>CPU Usage: <%= Cpu.usage %>% </p>
 </div>
 <div class="memory-bars">
 <p class="before-bar">CPU Usage: </p>
@@ -31,7 +37,7 @@
 <div class="widget top-stat">
 <pre>
 <%= top_info = `top -bn1`.split("\n")
-small_top = top_info[0...20].join("<br>") %>
+small_top = top_info[0...20].join("\n") %>
 </pre>
 </div>
 </body>

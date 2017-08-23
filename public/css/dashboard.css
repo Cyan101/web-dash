@@ -21,7 +21,7 @@ p {
 }
 .memory-bars > p {
     margin-left: 4px;
-    margin-right: 10px;
+    margin-right: 4px;
     margin-top: 15px;
     display: inline-block;
     float: left;
@@ -32,17 +32,19 @@ p {
 .bar {
     width: 200px;
     background-color: #2a2b2f;
-    height: 18px;
+    height: 9px;
     overflow: hidden;
     padding: 3px;
-    margin-top: 12px;
+    margin-top: 18px;
     margin-bottom: 40px;
     margin-left: 4px;
     display: inline-block;
 }
 .bar-fill {
     background-image: -webkit-linear-gradient(bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
-    background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
+    /* background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%); */
+    background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #00c5ff 50%, #0383a9 100%);
+    height: inherit;
     display: list-item;
     border-radius: 1px;
 }
@@ -52,6 +54,7 @@ p {
     padding-bottom: 8px;
     position: absolute;
     bottom: 15px;
+    min-width: 610px;
 }
 pre {
     font-size: small;
@@ -61,4 +64,10 @@ pre {
 .cpu-stat {
     width: fit-content;
     min-width: 150px;
+}
+.inline {
+    display: inline-block;
+}
+.mincpu {
+    margin-right: 6px;
 }

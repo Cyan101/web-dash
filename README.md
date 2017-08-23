@@ -4,6 +4,9 @@ Web-Dash is a small Web UI for keeping an eye on your linux system, most likely 
 Its aim is to provide information on statistics such as running services, memory usage, cpu usage and being able to control/toggle said services
 Web-Dash will also have support for links to other web programs running so it can be used to navigate through your system remotely without having to bookmark a bunch of URL's
 
+Current Example:
+![Current Example](http://i.imgur.com/D7Ckwux.png)
+
 ## Installation
 
 TODO: Write installation instructions here

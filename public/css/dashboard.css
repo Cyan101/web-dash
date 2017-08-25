@@ -14,10 +14,16 @@ p {
     border-style: solid;
     background-color: #4a4a4a;
     padding: 15px 15px 15px 15px;
+    display: inline-block;
 }
 .memory-stat {
     width: fit-content;
     min-width: 150px;
+}
+.memory-bars {
+    display: inline-block;
+    clear: both;
+    height: 40px;
 }
 .memory-bars > p {
     margin-left: 4px;
@@ -28,6 +34,9 @@ p {
 }
 .before-bar {
     width: 100px;
+}
+.before-bar, .right {
+    width: fit-content;
 }
 .bar {
     width: 200px;
@@ -70,4 +79,7 @@ pre {
 }
 .mincpu {
     margin-right: 6px;
+}
+.storage {
+    float: right;
 }

@@ -12,21 +12,35 @@
 <p><%= mem_avail = mem_info["MemAvailable"].to_f 
 (mem_avail / 1024) > 1024 ? ((mem_avail / 1024) / 1024).round(2).to_s + " GB" : (mem_avail / 1024).round(2).to_s + " MB" %> Available</p>
 </div>
+
+<div class="widget storage">
+ <% devices = get_storage
+    devices.each do |x| %>
+ <p> <%= x = x.split(/\s{1,}/)
+         used_size = kb_to_size(x[2].to_f)
+         max_size = kb_to_size(x[2].to_f + x[3].to_f)
+      "#{x[4]} (#{used_size[0]} #{used_size[1]})" %> used of <%= "#{max_size[0]} #{max_size[1]}" %> @ <%= x[5] %></p>
+ <% end %>
+</div>
+
+  <% devices.each do |x| %>
+<div class="memory-bars storage">
+  <% x = x.split(/\s{1,}/) %>
+<p class="before-bar right"><%= x[5] %></p>
+<div class="bar">
+<div class="bar-fill" style="width: <%= x[4] %>;"></div>
+</div>
+</div>
+<% end %>
+
+<br>
 <div class="memory-bars">
 <p class="before-bar">Free Memory: </p>
 <div class="bar">
 <div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
 </div>
 </div>
-
-<div class="widget storage">
- <% devices = get_storage
-    devices.each do |x| %>
- <p> <%= x = x.split(/\s{1,}/)
-      "#{x[5]} is at #{x[4]} (#{kb_to_size(x[2].to_f)}" %> used of <%= kb_to_size(x[2].to_f + x[3].to_f) %>)</p>
- <% end %>
-</div>
-
+<br>
 <div class="widget cpu-stat">
 <p>Max CPU: <%=
 cpu = `lscpu | grep -e "CPU max"`.split(":")[1].to_f
@@ -36,6 +50,7 @@ cpu = `lscpu | grep -e "CPU min"`.split(":")[1].to_f
 cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.to_i.to_s + "Mhz" %></p>
 <p>CPU Usage: <%= Cpu.usage %>% </p>
 </div>
+<br>
 <div class="memory-bars">
 <p class="before-bar">CPU Usage: </p>
 <div class="bar">

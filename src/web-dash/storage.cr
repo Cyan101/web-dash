@@ -29,10 +29,10 @@ end
 
 def kb_to_size(size : Float | Int, round : Int? = 2)
   key = 0
-  sizes = %w(kb mb gb tb)
+  sizes = %w(KB MB GB TB)
   while size > 1024
     key += 1
     size = size / 1024
   end
-  return "#{size.round(round)}#{sizes[key]}"
+  return [size.round(round), sizes[key]]
 end

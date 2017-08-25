@@ -83,3 +83,23 @@ pre {
 .storage {
     float: right;
 }
+.program-area {
+    float: right;
+    width: 40%;
+    height: 30%;
+    padding: 20px 20px 20px 20px;
+    margin-top: 140px;
+}
+.program {
+    height: 70px;
+    width: 70px;
+    padding: 8px 8px 8px 8px;
+    border-radius: 4px;
+    margin-right: 25px;
+}
+.program > a {
+    height: 70px;
+}
+.program > a > img {
+    height: 70px
+}

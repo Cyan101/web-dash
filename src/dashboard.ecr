@@ -68,5 +68,15 @@ cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.to_i.to_s + "Mhz" %></p>
 small_top = top_info[0...20].join("\n") %>
 </pre>
 </div>
+<div class="program-area">
+    <% order = %w(transmission sonarr radarr plex) %>
+       <% order.each do |x| %>
+  <div class="program widget">
+<script language="JavaScript">
+document.write('<a href="' + window.location.protocol + '//' + window.location.hostname + '<%= Cfg[x] %>' + '" ><img src="images/<%= x %>.png"></a> ' );
+</script>
+  </div>
+<% end %>
+  </div>
 </body>
 </html>

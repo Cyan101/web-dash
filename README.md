@@ -14,6 +14,8 @@ TODO: Write installation instructions here
 ## Usage
 
 TODO: Write usage instructions here
+1. Compile with `crystal build --release src/web-dash.cr` 
+2. `./web-dash > web-dash.output &` is a simple way to run web-dash in the background, might stick with this or look into other better ways. This needs to be run inside the project folder for proper linking to the `public/` folder for CSS and such
 
 ## Development
 

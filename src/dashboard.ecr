@@ -18,6 +18,15 @@
 <div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
 </div>
 </div>
+
+<div class="widget storage">
+ <% devices = get_storage
+    devices.each do |x| %>
+ <p> <%= x = x.split(/\s{1,}/)
+      "#{x[5]} is at #{x[4]} (#{kb_to_size(x[2].to_f)}" %> used of <%= kb_to_size(x[2].to_f + x[3].to_f) %>)</p>
+ <% end %>
+</div>
+
 <div class="widget cpu-stat">
 <p>Max CPU: <%=
 cpu = `lscpu | grep -e "CPU max"`.split(":")[1].to_f

@@ -11,7 +11,6 @@ before_get do |env|
 end
 
 get "/" do |env|
-  mem_info = get_mem_info
   render "src/dashboard.ecr"
 end
 

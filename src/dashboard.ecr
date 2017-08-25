@@ -5,6 +5,7 @@
 </head>
 <body>
 <div class="widget memory-stat">
+  <% mem_info = get_mem_info %>
 <p><%= mem_total = mem_info["MemTotal"].to_f 
 (mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).round(2).to_s + " GB" : (mem_total / 1024).round(2).to_s + " MB" %> Total</p>
 <p><%= mem_free = mem_info["MemFree"].to_f 
@@ -19,7 +20,7 @@
  <p> <%= x = x.split(/\s{1,}/)
          used_size = kb_to_size(x[2].to_f)
          max_size = kb_to_size(x[2].to_f + x[3].to_f)
-      "#{x[4]} (#{used_size[0]} #{used_size[1]})" %> used of <%= "#{max_size[0]} #{max_size[1]}" %> @ <%= x[5] %></p>
+      "#{x[5]} <strong>@</strong> #{x[4]} (#{used_size[0]} #{used_size[1]})" %> used of <%= "#{max_size[0]} #{max_size[1]}" %></p>
  <% end %>
 </div>
 

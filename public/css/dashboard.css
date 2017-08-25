@@ -1,6 +1,6 @@
 html {
     background-color: #fc6a3d;
-    background-image: url('http://i.imgur.com/ea9PB3H.png');
+    background-image: url('../images/ea9PB3H.png');
     background-position: top;
 }
 p {
@@ -28,7 +28,7 @@ p {
 .memory-bars > p {
     margin-left: 4px;
     margin-right: 4px;
-    margin-top: 15px;
+    margin-top: 17px;
     display: inline-block;
     float: left;
 }

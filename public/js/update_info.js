@@ -29,9 +29,22 @@ if(req.status == 200) {
 }
 
 
+function update_bar(type){
+var req = new XMLHttpRequest();
+req.open('GET', '/update/bar-' + type, false);   
+req.send(null);  
+if(req.status == 200) {  
+   var info = req.responseText;
+   var bar = document.getElementById("bar-" + type);
+   bar.style.width = info;
+   }
+}
+
 function update_page(){
   update_memory();
   update_cpu();
+  update_bar("cpu");
+  update_bar("memory");
   update_top();
  }
 

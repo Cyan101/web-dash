@@ -31,12 +31,21 @@ get "/update/cpu" do |env|
   info += "<p>CPU Usage: #{Cpu.usage}% </p>"
 end
 
+get "/update/bar-cpu" do |env|
+  Cpu.usage
+end
+
 get "/update/memory" do |env|
   Memory.new
   info = ""
   info += "<p>#{Memory.total} Total</p>"
   info += "<p>#{Memory.free} Free</p>"
   info += "<p>#{Memory.avail} Available</p>"
+end
+
+get "/update/bar-memory" do |env|
+  mem_info = Memory.get_mem_info
+  "#{(mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100}%"
 end
 
 get "/update/top" do |env|

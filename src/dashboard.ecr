@@ -40,7 +40,7 @@
 <p class="before-bar">Free Memory: </p>
 <div class="bar">
   <% mem_info = Memory.get_mem_info %>
-<div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
+<div id="bar-memory" class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
 </div>
 </div>
 <br>
@@ -55,7 +55,7 @@
 <div class="memory-bars">
 <p class="before-bar">CPU Usage: </p>
 <div class="bar">
-<div class="bar-fill" style="width: <%= Cpu.usage %>%;"></div>
+<div id="bar-cpu" class="bar-fill" style="width: <%= Cpu.usage %>%;"></div>
 </div>
 </div>
 <br><br>

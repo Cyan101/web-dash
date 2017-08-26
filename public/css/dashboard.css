@@ -32,11 +32,11 @@ p {
     display: inline-block;
     float: left;
 }
+.memory-bars > .right {
+    width: fit-content;
+}
 .before-bar {
     width: 100px;
-}
-.before-bar, .right {
-    width: fit-content;
 }
 .bar {
     width: 200px;

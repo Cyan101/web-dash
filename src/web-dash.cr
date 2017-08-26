@@ -21,6 +21,8 @@ get "/css/custom.css" do |env|
   "html { background-image: url('#{Cfg["background"]?.nil? || "" ? "http://i.imgur.com/ea9PB3H.png" : Cfg["background"]}')}"
 end
 
+# Below is Updated HTML for Javascript to just replace on the current page
+
 get "/update/cpu" do |env|
   Cpu.new
   info = ""
@@ -38,11 +40,8 @@ get "/update/memory" do |env|
 end
 
 get "/update/top" do |env|
-  info = ""
-  info += "<pre>"
   top_info = `top -bn1`.split("\n")
-  small_top = top_info[0...20].join("\n")
-  info += "#{small_top}</pre>"
+  info = "<pre>#{top_info[0...20].join("\n")}</pre>"
 end
 
 Kemal.run

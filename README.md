@@ -1,4 +1,6 @@
-# web-dash
+# Web-Dash
+
+![Build Status](https://travis-ci.org/Cyan101/web-dash.svg?branch=master)
 
 Web-Dash is a small Web UI for keeping an eye on your linux system, most likely your NAS or any Pi's/SBC's you have
 Its aim is to provide information on statistics such as running services, memory usage, cpu usage and being able to control/toggle said services

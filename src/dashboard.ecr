@@ -11,8 +11,8 @@
 <div id="memory" class="widget memory-stat">
   <% Memory.new %>
 <p><%= Memory.total %> Total</p>
-<p><%= Memory.free %> Free</p>
 <p><%= Memory.avail %> Available</p>
+<p><%= Memory.free %> Free</p>
 </div>
 
 <div class="widget storage">
@@ -37,10 +37,10 @@
 
 <br>
 <div class="memory-bars">
-<p class="before-bar">Free Memory: </p>
+<p class="before-bar">Available Memory: </p>
 <div class="bar">
   <% mem_info = Memory.get_mem_info %>
-<div id="bar-memory" class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
+<div id="bar-memory" class="bar-fill" style="width: <%= (mem_info["MemAvailable"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
 </div>
 </div>
 <br>

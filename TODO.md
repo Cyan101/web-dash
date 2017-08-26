@@ -4,3 +4,4 @@
 * Clean up here and there
 * Fill out readme and such
 * (???) Move all update info into an array/hash and put it under one URL
+* Merge the users Cfg and the Default Cfg Hash's in-case they have any `""` or missing/deleted keys/values

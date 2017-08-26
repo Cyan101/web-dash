@@ -32,7 +32,7 @@ get "/update/cpu" do |env|
 end
 
 get "/update/bar-cpu" do |env|
-  Cpu.usage
+  "#{Cpu.usage}%"
 end
 
 get "/update/memory" do |env|

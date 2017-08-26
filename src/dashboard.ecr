@@ -9,13 +9,10 @@
 </head>
 <body>
 <div id="memory" class="widget memory-stat">
-  <% mem_info = get_mem_info %>
-<p><%= mem_total = mem_info["MemTotal"].to_f 
-(mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).round(2).to_s + " GB" : (mem_total / 1024).round(2).to_s + " MB" %> Total</p>
-<p><%= mem_free = mem_info["MemFree"].to_f 
-(mem_free / 1024) > 1024 ? ((mem_free / 1024) / 1024).round(2).to_s + " GB" : (mem_free / 1024).round(2).to_s + " MB" %> Free</p>
-<p><%= mem_avail = mem_info["MemAvailable"].to_f 
-(mem_avail / 1024) > 1024 ? ((mem_avail / 1024) / 1024).round(2).to_s + " GB" : (mem_avail / 1024).round(2).to_s + " MB" %> Available</p>
+  <% Memory.new %>
+<p><%= Memory.total %> Total</p>
+<p><%= Memory.free %> Free</p>
+<p><%= Memory.avail %> Available</p>
 </div>
 
 <div class="widget storage">
@@ -42,16 +39,16 @@
 <div class="memory-bars">
 <p class="before-bar">Free Memory: </p>
 <div class="bar">
+  <% mem_info = Memory.get_mem_info %>
 <div class="bar-fill" style="width: <%= (mem_info["MemFree"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
 </div>
 </div>
 <br>
 <div id="cpu" class="widget cpu-stat">
-  <p>Max CPU: <% Cpu.new
-                 Cpu.max %></p>
+  <% Cpu.new %>
+  <p>Max CPU: <%= Cpu.max %></p>
   <p class="mincpu inline">Min </p><p class="inline">CPU:
-    <%= Cpu.new
-        Cpu.min %></p>
+    <%= Cpu.min %></p>
 <p>CPU Usage: <%= Cpu.usage %>% </p>
 </div>
 <br>

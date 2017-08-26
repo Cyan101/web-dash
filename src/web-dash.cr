@@ -34,17 +34,14 @@ get "/update/cpu" do |env|
 end
 
 get "/update/memory" do |env|
-  mem_info = get_mem_info
-  mem_total = mem_info["MemTotal"].to_f
+  Memory.new
   info = ""
   info += "<p>"
-  info += (mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).round(2).to_s + " GB" : (mem_total / 1024).round(2).to_s + " MB"
+  info += Memory.total
   info += " Total</p><p>"
-  mem_free = mem_info["MemFree"].to_f
-  info += (mem_free / 1024) > 1024 ? ((mem_free / 1024) / 1024).round(2).to_s + " GB" : (mem_free / 1024).round(2).to_s + " MB"
+  info += Memory.free
   info += " Free</p><p>"
-  mem_avail = mem_info["MemAvailable"].to_f
-  info += (mem_avail / 1024) > 1024 ? ((mem_avail / 1024) / 1024).round(2).to_s + " GB" : (mem_avail / 1024).round(2).to_s + " MB"
+  info += Memory.avail
   info += " Available</p>"
 end
 

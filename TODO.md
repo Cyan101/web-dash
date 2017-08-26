@@ -5,4 +5,3 @@
 * Clean the ECR files and a general file cleaning
 * Add config options for kemal options such as port and url
 * Fill out readme and such
-* Add external devices/storage to the config

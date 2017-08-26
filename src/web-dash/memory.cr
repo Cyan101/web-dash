@@ -3,13 +3,17 @@ class Memory
   class_getter free = ""
   class_getter avail = ""
 
-  def initialize
+  def self.total
     mem = Memory.get_mem_info
     mem_total = mem["MemTotal"].to_f
     @@total = (mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).round(2).to_s + " GB" : (mem_total / 1024).round(2).to_s + " MB"
+  end
+
+  def initialize
+    mem = Memory.get_mem_info
     mem_free = mem["MemFree"].to_f
-    @@free = (mem_free / 1024) > 1024 ? ((mem_free / 1024) / 1024).round(2).to_s + " GB" : (mem_free / 1024).round(2).to_s + " MB"
     mem_avail = mem["MemAvailable"].to_f
+    @@free = (mem_free / 1024) > 1024 ? ((mem_free / 1024) / 1024).round(2).to_s + " GB" : (mem_free / 1024).round(2).to_s + " MB"
     @@avail = (mem_avail / 1024) > 1024 ? ((mem_avail / 1024) / 1024).round(2).to_s + " GB" : (mem_avail / 1024).round(2).to_s + " MB"
   end
 

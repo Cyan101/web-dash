@@ -28,6 +28,15 @@ if(req.status == 200) {
    }
 }
 
+function update_stat(type){
+var req = new XMLHttpRequest();
+req.open('GET', '/update/' + type, false);   
+req.send(null);  
+if(req.status == 200) {  
+   var info = req.responseText;
+   document.getElementById(type).innerHTML = info;
+   }
+}
 
 function update_bar(type){
 var req = new XMLHttpRequest();
@@ -41,11 +50,11 @@ if(req.status == 200) {
 }
 
 function update_page(){
-  update_memory();
-  update_cpu();
   update_bar("cpu");
   update_bar("memory");
-  update_top();
+  update_stat("top");
+  update_stat("memory");
+  update_stat("cpu");
  }
 
 setInterval(update_page, 4000);

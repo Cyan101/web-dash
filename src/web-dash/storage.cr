@@ -12,7 +12,7 @@ def get_storage
       devices_info << x if devices.includes?(mount_location)
     end
   rescue
-    puts "Error reading some devices"
+    puts "Error reading/finding some devices"
   end
 
   return devices_info

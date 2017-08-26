@@ -2,8 +2,11 @@ require "./web-dash/*"
 require "kemal"
 require "kemal-basic-auth"
 require "yaml"
-basic_auth "cyan101", "pass123"
 Cfg = YAML.parse(File.read("config.yaml"))
+# logging false
+Kemal.config.host_binding = Cfg["address"].to_s
+Kemal.config.port = Cfg["port"].to_s.to_i
+basic_auth Cfg["user"].to_s, Cfg["pass"].to_s
 
 before_all do |env|
   env.kemal_authorized_username? # Halt if fails

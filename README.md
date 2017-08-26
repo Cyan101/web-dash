@@ -14,8 +14,9 @@ TODO: Write installation instructions here
 ## Usage
 
 TODO: Write usage instructions here
-1. Compile with `crystal build --release src/web-dash.cr` 
+1. Compile with `crystal build --release src/web-dash.cr` (add `--no-debug` if you have issues) or use a build from the releases tab
 2. `./web-dash > web-dash.output &` is a simple way to run web-dash in the background, might stick with this or look into other better ways. This needs to be run inside the project folder for proper linking to the `public/` folder for CSS and such
+2. To use SSL with Web-Dash `./web-dash --ssl --ssl-key-file your_key_file --ssl-cert-file your_cert_file`
 
 ## Development
 

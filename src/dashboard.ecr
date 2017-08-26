@@ -4,10 +4,11 @@
  <link href='/css/dashboard.css' rel='stylesheet' type='text/css'>
  <link href='<%= Cfg.["favicon"]?.nil? || "" ? "images/favicon.png" : "#{Cfg["favicon"]}" %>' rel='icon' type='image/png'>
  <link href='/css/custom.css' rel='stylesheet' type='text/css'>
+ <script src="/js/update_info.js"></script>
  <title><%= Cfg["title"]?.nil? || "" ? "Web-Dash" : Cfg["title"] %></title>
 </head>
 <body>
-<div class="widget memory-stat">
+<div id="memory" class="widget memory-stat">
   <% mem_info = get_mem_info %>
 <p><%= mem_total = mem_info["MemTotal"].to_f 
 (mem_total / 1024) > 1024 ? ((mem_total / 1024) / 1024).round(2).to_s + " GB" : (mem_total / 1024).round(2).to_s + " MB" %> Total</p>
@@ -45,7 +46,7 @@
 </div>
 </div>
 <br>
-<div class="widget cpu-stat">
+<div id="cpu" class="widget cpu-stat">
 <p>Max CPU: <%=
 cpu = `lscpu | grep -e "CPU max"`.split(":")[1].to_f
 cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.round(2).to_s + "Mhz" %></p>
@@ -62,7 +63,7 @@ cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.to_i.to_s + "Mhz" %></p>
 </div>
 </div>
 <br><br>
-<div class="widget top-stat">
+<div id="top" class="widget top-stat">
 <pre>
 <%= top_info = `top -bn1`.split("\n")
 small_top = top_info[0...20].join("\n") %>

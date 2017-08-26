@@ -1,7 +1,7 @@
 # TODO
 
-* Use JS to poll and update cpu/mem usage and a toggle for JS updating the page
+* Update the bars with JS too
+* Add min/max info to the CPU module
 * Find a better way for running web-dash as a service/background process
-* Clean the ECR files and a general file cleaning
-* Add config options for kemal options such as port and url
+* Clean the ECR file and how the "update" pages in web-dash.cr look
 * Fill out readme and such

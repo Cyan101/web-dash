@@ -24,25 +24,17 @@ end
 get "/update/cpu" do |env|
   Cpu.new
   info = ""
-  info += "<p>Max CPU: "
-  info += Cpu.max
-  info += "</p>"
-  info += "<p class='mincpu inline'>Min </p><p class='inline'>CPU: "
-  info += Cpu.min
-  info += "</p>"
+  info += "<p>Max CPU: #{Cpu.max}</p>"
+  info += "<p class='mincpu inline'>Min </p><p class='inline'>CPU: #{Cpu.mix}</p>"
   info += "<p>CPU Usage: #{Cpu.usage}% </p>"
 end
 
 get "/update/memory" do |env|
   Memory.new
   info = ""
-  info += "<p>"
-  info += Memory.total
-  info += " Total</p><p>"
-  info += Memory.free
-  info += " Free</p><p>"
-  info += Memory.avail
-  info += " Available</p>"
+  info += "<p>#{Memory.total} Total</p>"
+  info += "<p>#{Memory.free} Free</p>"
+  info += "<p>#{Memory.avail} Available</p>"
 end
 
 get "/update/top" do |env|

@@ -22,14 +22,13 @@ get "/css/custom.css" do |env|
 end
 
 get "/update/cpu" do |env|
+  Cpu.new
   info = ""
   info += "<p>Max CPU: "
-  cpu = `lscpu | grep -e "CPU max"`.split(":")[1].to_f
-  info += cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.round(2).to_s + "Mhz"
+  info += Cpu.max
   info += "</p>"
   info += "<p class='mincpu inline'>Min </p><p class='inline'>CPU: "
-  cpu = `lscpu | grep -e "CPU min"`.split(":")[1].to_f
-  info += cpu > 1000 ? (cpu / 1000).round(2).to_s + "Ghz" : cpu.to_i.to_s + "Mhz"
+  info += Cpu.min
   info += "</p>"
   info += "<p>CPU Usage: #{Cpu.usage}% </p>"
 end

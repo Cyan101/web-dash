@@ -1,1 +1,3 @@
 language: crystal
+env:
+  - travis_build=true

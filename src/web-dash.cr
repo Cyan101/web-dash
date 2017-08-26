@@ -53,4 +53,4 @@ get "/update/top" do |env|
   info = "<pre>#{top_info[0...20].join("\n")}</pre>"
 end
 
-Kemal.run
+Kemal.run unless ENV["travis_build"]?.to_s == "true"

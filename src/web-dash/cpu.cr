@@ -5,9 +5,12 @@ class Cpu
   class_getter max = ""
   class_getter min = ""
 
-  def initialize
+  def self.max
     max = `lscpu | grep -e "CPU max"`.split(":")[1].to_f
     @@max = max > 1000 ? (max / 1000).round(2).to_s + "Ghz" : max.round(2).to_s + "Mhz"
+  end
+
+  def self.min
     min = `lscpu | grep -e "CPU min"`.split(":")[1].to_f
     @@min = min > 1000 ? (min / 1000).round(2).to_s + "Ghz" : min.round(2).to_s + "Mhz"
   end

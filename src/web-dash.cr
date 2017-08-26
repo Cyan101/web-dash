@@ -27,7 +27,7 @@ get "/update/cpu" do |env|
   Cpu.new
   info = ""
   info += "<p>Max CPU: #{Cpu.max}</p>"
-  info += "<p class='mincpu inline'>Min </p><p class='inline'>CPU: #{Cpu.mix}</p>"
+  info += "<p class='mincpu inline'>Min </p><p class='inline'>CPU: #{Cpu.min}</p>"
   info += "<p>CPU Usage: #{Cpu.usage}% </p>"
 end
 

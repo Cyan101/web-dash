@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
- <link href='/css/dashboard.css' rel='stylesheet' type='text/css'>
- <link href='<%= Cfg.["favicon"]?.nil? || "" ? "images/favicon.png" : "#{Cfg["favicon"]}" %>' rel='icon' type='image/png'>
- <link href='/css/custom.css' rel='stylesheet' type='text/css'>
- <script src="/js/update_info.js"></script>
- <title><%= Cfg["title"]?.nil? || "" ? "Web-Dash" : Cfg["title"] %></title>
-</head>
-<body>
-<div id="memory" class="widget memory-stat">
-  <% Memory.new %>
-<p><%= Memory.total %> Total</p>
-<p><%= Memory.avail %> Available</p>
-<p><%= Memory.free %> Free</p>
-</div>
+  <head>
+    <link href='/css/dashboard.css' rel='stylesheet' type='text/css'>
+    <link href='<%= Cfg.["favicon"]?.nil? || "" ? "images/favicon.png" : "#{Cfg["favicon"]}" %>' rel='icon' type='image/png'>
+    <link href='/css/custom.css' rel='stylesheet' type='text/css'>
+    <script src="/js/update_info.js"></script>
+    <title><%= Cfg["title"]?.nil? || "" ? "Web-Dash" : Cfg["title"] %></title>
+  </head>
+  <body>
+    <div id="memory" class="widget memory-stat">
+      <% Memory.new %>
+      <p><%= Memory.total %> Total</p>
+      <p><%= Memory.avail %> Available</p>
+      <p><%= Memory.free %> Free</p>
+    </div>
 
-<div class="widget storage">
- <% devices = get_storage
-    devices.each do |x| %>
- <p> <%= x = x.split(/\s{1,}/)
-         used_size = kb_to_size(x[2].to_f)
-         max_size = kb_to_size(x[2].to_f + x[3].to_f)
-      "#{x[5]} <strong>@</strong> #{x[4]} (#{used_size[0]} #{used_size[1]})" %> used of <%= "#{max_size[0]} #{max_size[1]}" %></p>
- <% end %>
-</div>
+    <div class="widget storage">
+      <% devices = get_storage
+         devices.each do |x| %>
+      <p> <%= x = x.split(/\s{1,}/)
+              used_size = kb_to_size(x[2].to_f)
+              max_size = kb_to_size(x[2].to_f + x[3].to_f)
+              "#{x[5]} <strong>@</strong> #{x[4]} (#{used_size[0]} #{used_size[1]})" %> used of <%= "#{max_size[0]} #{max_size[1]}" %></p>
+      <% end %>
+    </div>
 
-  <% devices.each do |x| %>
-<div class="memory-bars storage">
-  <% x = x.split(/\s{1,}/) %>
-<p class="before-bar right"><%= x[5] %></p>
-<div class="bar">
-<div class="bar-fill" style="width: <%= x[4] %>;"></div>
-</div>
-</div>
-<% end %>
+    <% devices.each do |x| %>
+    <div class="memory-bars storage">
+      <% x = x.split(/\s{1,}/) %>
+      <p class="before-bar right"><%= x[5] %></p>
+      <div class="bar">
+        <div class="bar-fill" style="width: <%= x[4] %>;"></div>
+      </div>
+    </div>
+    <% end %>
 
-<br>
-<div class="memory-bars">
-<p class="before-bar">Available Memory: </p>
-<div class="bar">
-  <% mem_info = Memory.get_mem_info %>
-<div id="bar-memory" class="bar-fill" style="width: <%= (mem_info["MemAvailable"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
-</div>
-</div>
-<br>
-<div id="cpu" class="widget cpu-stat">
-  <% Cpu.new %>
-  <p>Max CPU: <%= Cpu.max %></p>
-  <p class="mincpu inline">Min </p><p class="inline">CPU:
-    <%= Cpu.min %></p>
-<p>CPU Usage: <%= Cpu.usage %>% </p>
-</div>
-<br>
-<div class="memory-bars">
-<p class="before-bar">CPU Usage: </p>
-<div class="bar">
-<div id="bar-cpu" class="bar-fill" style="width: <%= Cpu.usage %>%;"></div>
-</div>
-</div>
-<br><br>
-<div id="top" class="widget top-stat">
-<pre>
-<%= top_info = `top -bn1`.split("\n")
-small_top = top_info[0...20].join("\n") %>
-</pre>
-</div>
-<div class="program-area">
-    <% order = %w(transmission sonarr radarr plex) %>
-       <% order.each do |x| %>
-  <div class="program widget">
-<script language="JavaScript">
-document.write('<a href="' + window.location.protocol + '//' + window.location.hostname + '<%= Cfg[x] %>' + '" ><img src="images/<%= x %>.png"></a> ' );
-</script>
-  </div>
-<% end %>
-  </div>
-</body>
+    <br>
+    <div class="memory-bars">
+      <p class="before-bar">Available Memory: </p>
+      <div class="bar">
+        <% mem_info = Memory.get_mem_info %>
+        <div id="bar-memory" class="bar-fill" style="width: <%= (mem_info["MemAvailable"].to_f / mem_info["MemTotal"].to_f) * 100 %>%;"></div>
+      </div>
+    </div>
+    <br>
+    <div id="cpu" class="widget cpu-stat">
+      <% Cpu.new %>
+      <p>Max CPU: <%= Cpu.max %></p>
+      <p class="mincpu inline">Min </p><p class="inline">CPU:
+        <%= Cpu.min %></p>
+      <p>CPU Usage: <%= Cpu.usage %>% </p>
+    </div>
+    <br>
+    <div class="memory-bars">
+      <p class="before-bar">CPU Usage: </p>
+      <div class="bar">
+        <div id="bar-cpu" class="bar-fill" style="width: <%= Cpu.usage %>%;"></div>
+      </div>
+    </div>
+    <br><br>
+    <div id="top" class="widget top-stat">
+      <pre>
+        <%= top_info = `top -bn1`.split("\n")
+            small_top = top_info[0...20].join("\n") %>
+      </pre>
+    </div>
+    <div class="program-area">
+      <% order = %w(transmission sonarr radarr plex) %>
+      <% order.each do |x| %>
+      <div class="program widget">
+        <script language="JavaScript">
+          document.write('<a href="' + window.location.protocol + '//' + window.location.hostname + '<%= Cfg[x] %>' + '" ><img src="images/<%= x %>.png"></a> ' );
+        </script>
+      </div>
+      <% end %>
+    </div>
+  </body>
 </html>

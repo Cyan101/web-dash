@@ -1,105 +1,105 @@
 html {
-    background-color: #fc6a3d;
-    background-image: url('../images/ea9PB3H.png');
-    background-position: top;
+  background-color: #fc6a3d;
+  background-image: url('../images/ea9PB3H.png');
+  background-position: top;
 }
 p {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .widget {
-    color: white;
-    border: black;
-    border-width: 1px 1px 1px 1px;
-    border-style: solid;
-    background-color: #4a4a4a;
-    padding: 15px 15px 15px 15px;
-    display: inline-block;
+  color: white;
+  border: black;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  background-color: #4a4a4a;
+  padding: 15px 15px 15px 15px;
+  display: inline-block;
 }
 .memory-stat {
-    width: fit-content;
-    min-width: 150px;
+  width: fit-content;
+  min-width: 150px;
 }
 .memory-bars {
-    display: inline-block;
-    clear: both;
-    height: 40px;
+  display: inline-block;
+  clear: both;
+  height: 40px;
 }
 .memory-bars > p {
-    margin-left: 4px;
-    margin-right: 4px;
-    margin-top: 17px;
-    display: inline-block;
-    float: left;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 17px;
+  display: inline-block;
+  float: left;
 }
 .memory-bars > .right {
-    width: fit-content;
+  width: fit-content;
 }
 .before-bar {
-    width: 80px;
+  width: 80px;
 }
 .bar {
-    width: 200px;
-    background-color: #2a2b2f;
-    height: 9px;
-    overflow: hidden;
-    padding: 3px;
-    margin-top: 18px;
-    margin-bottom: 40px;
-    margin-left: 4px;
-    display: inline-block;
+  width: 200px;
+  background-color: #2a2b2f;
+  height: 9px;
+  overflow: hidden;
+  padding: 3px;
+  margin-top: 18px;
+  margin-bottom: 40px;
+  margin-left: 4px;
+  display: inline-block;
 }
 .bar-fill {
-    background-image: -webkit-linear-gradient(bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
-    /* background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%); */
-    background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #00c5ff 50%, #0383a9 100%);
-    height: inherit;
-    display: list-item;
-    border-radius: 1px;
+  background-image: -webkit-linear-gradient(bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%);
+  /* background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%); */
+  background-image: linear-gradient(to bottom, #00c5ff 0%, #00c5ff 47%, #00c5ff 50%, #0383a9 100%);
+  height: inherit;
+  display: list-item;
+  border-radius: 1px;
 }
 .top-stat {
-    width: fit-content;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    position: absolute;
-    bottom: 15px;
-    min-width: 610px;
+  width: fit-content;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: absolute;
+  bottom: 15px;
+  min-width: 610px;
 }
 pre {
-    font-size: small;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .cpu-stat {
-    width: fit-content;
-    min-width: 150px;
+  width: fit-content;
+  min-width: 150px;
 }
 .inline {
-    display: inline-block;
+  display: inline-block;
 }
 .mincpu {
-    margin-right: 6px;
+  margin-right: 6px;
 }
 .storage {
-    float: right;
+  float: right;
 }
 .program-area {
-    float: right;
-    width: 40%;
-    height: 30%;
-    padding: 20px 20px 20px 20px;
-    margin-top: 140px;
+  float: right;
+  width: 40%;
+  height: 30%;
+  padding: 20px 20px 20px 20px;
+  margin-top: 140px;
 }
 .program {
-    height: 70px;
-    width: 70px;
-    padding: 8px 8px 8px 8px;
-    border-radius: 4px;
-    margin-right: 25px;
+  height: 70px;
+  width: 70px;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+  margin-right: 25px;
 }
 .program > a {
-    height: 70px;
+  height: 70px;
 }
 .program > a > img {
-    height: 70px
+  height: 70px
 }

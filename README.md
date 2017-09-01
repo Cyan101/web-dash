@@ -7,7 +7,7 @@ Its aim is to provide information on statistics such as running services, memory
 Web-Dash will also have support for links to other web programs running so it can be used to navigate through your system remotely without having to bookmark a bunch of URL's
 
 Current Example:
-![Current Example](http://i.imgur.com/OTmjvyw.png)
+![Current Example](http://i.imgur.com/OxfEls1.png)
 
 ## Installation
 
